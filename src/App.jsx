@@ -20,10 +20,10 @@ const MakeLighter = (rgb_colors) => {
     return [r, g, b]
 }
 
-const GetTriadic1 = () =>
+const GetTriadic1 = (rgb_color) =>
     [rgb_color[2], rgb_color[0], rgb_color[1]]
 
-const GetTriadic2 = () =>
+const GetTriadic2 = (rgb_color) =>
     [rgb_color[1], rgb_color[2], rgb_color[0]]
 
 let main_rgb_colors = GetColorRGB();
