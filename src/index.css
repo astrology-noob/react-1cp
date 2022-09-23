@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 body {
-	margin: 0;
-	font-family: "Nunito", "Arial", "Helvetica", sans-serif;
+	font-family: 'roboto', arial, sans-serif;
 }
 h1 {
 	height: 100vh;
@@ -14,6 +15,11 @@ h1 {
 h1 img {
 	height: 50px;
 	animation: rotate 3s linear infinite;
+}
+.container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 30px;
 }
 @keyframes rotate {
 	100% {
