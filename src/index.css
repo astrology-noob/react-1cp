@@ -1,26 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 body {
+	margin: 0;
+	padding: 0;
 	font-family: 'roboto', arial, sans-serif;
 }
-h1 {
+
+.container {
+	width: 100vw;
 	height: 100vh;
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	gap: 20px;
-	color: #61dafb;
+	flex-direction: column;
+	gap: 10px;
 }
-h1 img {
-	height: 50px;
-	animation: rotate 3s linear infinite;
+
+.spectrum {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
 }
-.container {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 30px;
+
+.complementary {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
 }
+
 @keyframes rotate {
 	100% {
 		transform: rotate(360deg);

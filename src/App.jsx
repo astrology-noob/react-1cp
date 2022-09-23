@@ -1,45 +1,65 @@
 import React from "react";
-import Card from "./components/Card"
+import {Card} from "./components/Card/Card"
 
 function GetColorRGB() {
-    return [Math.random()*255, Math.random()*255, Math.random()*255];
+    return [Math.round(Math.random()*255), Math.round(Math.random()*255), Math.round(Math.random()*255)]
 }
 
-function GetRGBString(rgb_colors) {
-    return `rgb(${rgb_colors[0]}, ${rgb_colors[1]}, ${rgb_colors[2]})`
+function MakeDarker(rgb_colors){
+    let step = -20;
+    let r = Math.min(Math.round(rgb_colors[0] + step), 255);
+    let g = Math.min(Math.round(rgb_colors[1] + step), 255);
+    let b = Math.min(Math.round(rgb_colors[2] + step), 255);
+    return [r, g, b]
 }
 
-function RGBCompToHEX(comp) {
-    var hex = comp.toString(16);
-    return hex.length == 1 ? "0" + hex : hex;
+function MakeLighter(rgb_colors){
+    let step = 20;
+    let r = Math.max(Math.round(rgb_colors[0] + step), 0);
+    let g = Math.max(Math.round(rgb_colors[1] + step), 0);
+    let b = Math.max(Math.round(rgb_colors[2] + step), 0);
+    return [r, g, b]
 }
 
-function ConvertToHEX(rgb_colors) {
-    return "#" + RGBCompToHEX(rgb_colors[0]) + RGBCompToHEX(rgb_colors[1]) + RGBCompToHEX(rgb_colors[2]);
+function GetTriadic1(rgb_color) {
+    return [rgb_color[2], rgb_color[0], rgb_color[1]]
 }
 
-let rgb_colors = GetColorRGB();
+function GetTriadic2(rgb_color) {
+    return [rgb_color[1], rgb_color[2], rgb_color[0]]
+}
 
+let main_rgb_colors = GetColorRGB();
+
+let dark1 = MakeDarker(main_rgb_colors);
+let dark2 = MakeDarker(dark1);
+let dark3 = MakeDarker(dark2);
+
+let light1 = MakeLighter(main_rgb_colors);
+let light2 = MakeLighter(light1);
+let light3 = MakeLighter(light2);
+
+let triad1 = GetTriadic1(main_rgb_colors)
+let triad2 = GetTriadic2(main_rgb_colors)
 
 export default () => {
     return <>
-        <div className="containter">
-            <Card rgb_color={GetRGBString(rgb_colors)} hex_color={ConvertToHEX(rgb_colors)} />
+        <div className="container">
+            <h1>Контрольная точка №1</h1>
+            <div className="spectrum">
+                <Card rgb_color={dark3} />
+                <Card rgb_color={dark2} />
+                <Card rgb_color={dark1} />
+                <Card rgb_color={main_rgb_colors} />
+                <Card rgb_color={light1} />
+                <Card rgb_color={light2} />
+                <Card rgb_color={light3} />
+            </div>
+            <div className="complementary">
+                <Card rgb_color={triad1} />
+                <Card rgb_color={main_rgb_colors} />
+                <Card rgb_color={triad2} />
+            </div>
         </div>
     </>
 }
-
-// const Caption = () => {
-//     return <div>
-//         <h1>Hiiii</h1>
-//         <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, ratione.</h2>
-//     </div>
-// }
-
-// const Card = () => {
-//     let now = new Date().toLocaleDateString();
-//     console.log(now);
-//     return <div>{now}</div>
-// }
-
-// export {Caption, Card};
