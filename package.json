@@ -4,6 +4,7 @@
 	"main": "index.js",
 	"license": "MIT",
 	"scripts": {
+		"homepage": "https://astrology-noob.github.io/react-test-project/",
 		"editorconfig": "editorconfig-checker",
 		"test": "npm run editorconfig",
 		"build:prod": "rimraf ./docs && webpack --mode production --config webpack.config.js",
