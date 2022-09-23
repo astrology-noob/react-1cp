@@ -1,11 +1,10 @@
 import React from "react";
 import {Card} from "./components/Card/Card"
 
-function GetColorRGB() {
-    return [Math.round(Math.random()*255), Math.round(Math.random()*255), Math.round(Math.random()*255)]
-}
+const GetColorRGB = () =>
+    [Math.round(Math.random()*255), Math.round(Math.random()*255), Math.round(Math.random()*255)]
 
-function MakeDarker(rgb_colors){
+const MakeDarker = (rgb_colors) => {
     let step = -20;
     let r = Math.min(Math.round(rgb_colors[0] + step), 255);
     let g = Math.min(Math.round(rgb_colors[1] + step), 255);
@@ -13,7 +12,7 @@ function MakeDarker(rgb_colors){
     return [r, g, b]
 }
 
-function MakeLighter(rgb_colors){
+const MakeLighter = (rgb_colors) => {
     let step = 20;
     let r = Math.max(Math.round(rgb_colors[0] + step), 0);
     let g = Math.max(Math.round(rgb_colors[1] + step), 0);
@@ -21,13 +20,11 @@ function MakeLighter(rgb_colors){
     return [r, g, b]
 }
 
-function GetTriadic1(rgb_color) {
-    return [rgb_color[2], rgb_color[0], rgb_color[1]]
-}
+const GetTriadic1 = () =>
+    [rgb_color[2], rgb_color[0], rgb_color[1]]
 
-function GetTriadic2(rgb_color) {
-    return [rgb_color[1], rgb_color[2], rgb_color[0]]
-}
+const GetTriadic2 = () =>
+    [rgb_color[1], rgb_color[2], rgb_color[0]]
 
 let main_rgb_colors = GetColorRGB();
 

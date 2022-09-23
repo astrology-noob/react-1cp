@@ -1,14 +1,13 @@
 import React from "react";
 import "./style.css";
 
-function RGBCompToHEX(comp) {
-    var hex = comp.toString(16);
+const RGBCompToHEX = (comp) => {
+    let hex = comp.toString(16);
     return hex.length == 1 ? "0" + hex : hex;
 }
 
-function RGBToHEX(rgb_colors) {
-    return "#" + RGBCompToHEX(rgb_colors[0]) + RGBCompToHEX(rgb_colors[1]) + RGBCompToHEX(rgb_colors[2]);
-}
+const RGBToHEX = (rgb_colors) =>
+    "#" + RGBCompToHEX(rgb_colors[0]) + RGBCompToHEX(rgb_colors[1]) + RGBCompToHEX(rgb_colors[2]);
 
 const RGBsign = (props) => {
     return <div className="RGBsign">
