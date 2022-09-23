@@ -4,16 +4,16 @@ import {Card} from "./components/Card/Card"
 const GetColorRGB = () =>
     [Math.round(Math.random()*255), Math.round(Math.random()*255), Math.round(Math.random()*255)]
 
-const MakeDarker = (rgb_colors) => {
-    let step = -20;
+const MakeLighter = (rgb_colors) => {
+    let step = 20;
     let r = Math.min(Math.round(rgb_colors[0] + step), 255);
     let g = Math.min(Math.round(rgb_colors[1] + step), 255);
     let b = Math.min(Math.round(rgb_colors[2] + step), 255);
     return [r, g, b]
 }
 
-const MakeLighter = (rgb_colors) => {
-    let step = 20;
+const MakeDarker = (rgb_colors) => {
+    let step = -20;
     let r = Math.max(Math.round(rgb_colors[0] + step), 0);
     let g = Math.max(Math.round(rgb_colors[1] + step), 0);
     let b = Math.max(Math.round(rgb_colors[2] + step), 0);
